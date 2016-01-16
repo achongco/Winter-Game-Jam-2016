@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
     public float time;
     public float distance;
+    public LayerMask blockingLayer;
 
     private bool move = false;
+    private RaycastHit2D hit;
     Rigidbody2D rbody;
 
     // Use this for initialization
@@ -39,8 +42,9 @@ public class PlayerMovement : MonoBehaviour {
                 Vector2 movement = new Vector2(horizontal, vertical);
                 Vector2 start = transform.position;
                 Vector2 end = start + movement * distance;
-                Debug.Log(end);
-                StartCoroutine(MyCoroutine(end));
+                hit = Physics2D.Linecast(start, end, blockingLayer);
+                if (hit.transform == null)
+                    StartCoroutine(MyCoroutine(end));
 
             }
         }
@@ -56,14 +60,15 @@ public class PlayerMovement : MonoBehaviour {
         float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
 
 
-        while (sqrRemainingDistance > float.Epsilon)
+        while (sqrRemainingDistance > 0)
         {
             Vector3 newPostion = Vector3.MoveTowards(rbody.position, end, rate * Time.deltaTime);
             rbody.MovePosition(newPostion);
             sqrRemainingDistance = (transform.position - end).sqrMagnitude;
             yield return null;
+            Debug.Log("loop");
         }
-
+        
         move = false;
     }
 

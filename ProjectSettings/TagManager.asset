@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Wall
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: blockingLayer
+    uniqueID: 324502275
     locked: 0
