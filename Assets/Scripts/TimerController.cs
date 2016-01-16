@@ -15,5 +15,11 @@ public class TimerController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         hungerBar.fillAmount -= STARVATION_RATE;
+        CheckForDeath();
 	}
+
+    void CheckForDeath(){
+        if (hungerBar.fillAmount <= 0.0f)
+            Debug.Log("DIED FROM STARVATION");
+    }
 }
