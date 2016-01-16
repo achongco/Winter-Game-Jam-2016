@@ -6,17 +6,14 @@ public class TimerController : MonoBehaviour {
 
     public Image hungerBar;
 
+    static float STARVATION_RATE = .0005f;
+
     void Awake(){
         hungerBar.fillAmount = .5f;
     }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
 	// Update is called once per frame
-	void Update () {
-	
+	void FixedUpdate () {
+        hungerBar.fillAmount -= STARVATION_RATE;
 	}
 }
