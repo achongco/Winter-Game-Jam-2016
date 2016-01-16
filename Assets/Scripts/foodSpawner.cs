@@ -11,7 +11,7 @@ public class foodSpawner : MonoBehaviour {
 	private foodScript foodCode;
 	private Object basicFood;
 
-	public Sprite[] foodSpites;
+	public Sprite[] foodSprites;
 
 	void Awake() {
 		current = this;
@@ -33,7 +33,7 @@ public class foodSpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (spawnedFood < maxFood) {
-
+			spawnFood ();
 
 		}
 	}
@@ -56,7 +56,7 @@ public class foodSpawner : MonoBehaviour {
 	private void spawnFood()
 	{
 		int numOfFoodTypes = System.Enum.GetValues (typeof(foodType)).Length;
-		if (foodSpites.Length < numOfFoodTypes) {
+		if (foodSprites.Length < numOfFoodTypes) {
 			Debug.Log ("Not enough food types defined");
 			return;
 		}
@@ -66,8 +66,20 @@ public class foodSpawner : MonoBehaviour {
 
 		//Decide where it's going to spawn
 
-		GameObject Food = getFood ();
-		Food.SetActive (true);
+		GameObject food = getFood ();
+		food.SetActive (true);
+		food.transform = new Vector2 (Random.Range (0, 5), Random.Range (0, 5));
+
+		foodScript script = food.GetComponent<foodScript> ();
+
+		int i = Random.Range (0, numOfFoodTypes);
+		script.type = (foodType)i;
+		food.name = script.name.ToString;
+		script.sr.sprite = foodSprites [i];
+
+		script.initializeVars ();
+
+		++spawnedFood;
 
 	}
 
