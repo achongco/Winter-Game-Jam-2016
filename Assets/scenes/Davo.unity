@@ -197,7 +197,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857c79caefa0e401187ad7d9323b0b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hamburger: {fileID: 154766, guid: 10b3d59a73157440687a2f45ae5f2e3e, type: 2}
+  foodSpites:
+  - {fileID: 21300000, guid: 6279d1edf386546f3a696cba063617dd, type: 3}
+  - {fileID: 21300000, guid: ee8ad405e2bd74c2d8633cc3ac0f571f, type: 3}
+  - {fileID: 21300000, guid: c7885b1aa64f3494e8e0f9fbf94e67b0, type: 3}
+  - {fileID: 21300000, guid: 5d3cba2462353430b993e6615910cd0f, type: 3}
 --- !u!1 &1432615185
 GameObject:
   m_ObjectHideFlags: 0

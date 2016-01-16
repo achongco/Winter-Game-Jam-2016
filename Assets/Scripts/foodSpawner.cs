@@ -38,7 +38,7 @@ public class foodSpawner : MonoBehaviour {
 		}
 	}
 
-	private void returnFood (GameObject obj)
+	public void returnFood (GameObject obj)
 	{
 		obj.transform.parent = transform;
 		obj.SetActive (false);
@@ -47,9 +47,28 @@ public class foodSpawner : MonoBehaviour {
 		spawnedFood--;
 	}
 
+	private GameObject getFood()
+	{
+		return foodPool.Pop ();
+	}
+
+
 	private void spawnFood()
 	{
-		
+		int numOfFoodTypes = System.Enum.GetValues (typeof(foodType)).Length;
+		if (foodSpites.Length < numOfFoodTypes) {
+			Debug.Log ("Not enough food types defined");
+			return;
+		}
+
+		Vector2 spawn = Vector2.zero;
+
+
+		//Decide where it's going to spawn
+
+		GameObject Food = getFood ();
+		Food.SetActive (true);
+
 	}
 
 
