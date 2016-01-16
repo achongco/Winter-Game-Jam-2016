@@ -7,7 +7,7 @@ public class TimerController : MonoBehaviour {
     public Image hungerBar;
 
     void Awake(){
-        hungerBar.fillAmount
+        hungerBar.fillAmount = .5f;
     }
 
 	// Use this for initialization
