@@ -1,14 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum foodType {
+	HAMBURGER,
+	HOTDOG,
+	TURKEY,
+	SPECIAL
+}
+
 public class foodScript : MonoBehaviour {
 
 	public int foodVal;
 	public foodSpawner foodSpawn;
+	private Transform texture;
+	public BoxCollider2D theBox;
 
 	// Use this for initialization
 	void Start () {
 		foodSpawn = GameObject.FindGameObjectWithTag("GameController").GetComponent<foodSpawner>();
+		texture = transform.Find("Texture").transform;
+		theBox.enabled = true;
+
 
 	}
 	
