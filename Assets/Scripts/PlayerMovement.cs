@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
 
 
-        while (sqrRemainingDistance > 0)
+        while (sqrRemainingDistance > float.Epsilon)
         {
             Vector3 newPostion = Vector3.MoveTowards(rbody.position, end, rate * Time.deltaTime);
             rbody.MovePosition(newPostion);
