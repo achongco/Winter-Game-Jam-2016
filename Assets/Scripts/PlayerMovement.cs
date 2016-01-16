@@ -5,7 +5,9 @@ public class PlayerMovement : MonoBehaviour
 {
     public float time;
     public float distance;
+    float scale = .7f;
     public LayerMask blockingLayer;
+    public GameObject belly;
 
     private bool move = false;
     private RaycastHit2D hit;
@@ -15,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
+        Grow();
     }
 
     // Update is called once per frame
@@ -70,6 +73,14 @@ public class PlayerMovement : MonoBehaviour
         }
         
         move = false;
+    }
+    
+    void Grow(){
+        //belly.transform.localScale = new Vector3(1.9f, 1.9f, 1.9f);
+        belly.transform.localScale = new Vector3(2.8f, 2.8f, 2.8f);
+        //belly.transform.localScale = new Vector3(3.7f, 3.7f, 3.7f);
+        //belly.transform.localScale = new Vector3(4.65f, 4.65f, 4.65f);
+
     }
 
 
