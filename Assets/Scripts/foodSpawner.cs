@@ -20,6 +20,8 @@ public class foodSpawner : MonoBehaviour {
 
 	void Awake() {
 		current = this;
+		specialTransforms = new List<Transform>();
+		regularTransforms = new List<Transform>();
 		//specialTiles = new GameObject[20];
 		//regularTiles = new GameObject[500];
 
