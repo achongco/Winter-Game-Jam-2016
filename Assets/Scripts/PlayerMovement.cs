@@ -4,13 +4,14 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float max_Speed = 5f;
+    float max_Speed = 7f;
     float scale = .7f;
 
     public LayerMask blockingLayer;
     public Image hungerBar;
 
     int Eaten;
+    static int TIER_SHIFT = 35;
 
     private bool move = false;
     private RaycastHit2D hit;
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Food"){
             Eat();
+            Debug.Log(Eaten);
         }
     }
 
@@ -41,13 +43,13 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = new Vector2(move_x * max_Speed, move_y * max_Speed);
     }
     void Grow(){
-        if(Eaten>280)
+        if(Eaten> TIER_SHIFT*4)
             transform.localScale = new Vector3(3.0f, 3.0f, 3.0f);
-        if (Eaten > 210)
+        if (Eaten > TIER_SHIFT*3)
             transform.localScale = new Vector3(2.7f, 2.7f, 2.7f);
-        else if (Eaten > 140)
+        else if (Eaten >= TIER_SHIFT*2)
             transform.localScale = new Vector3(1.9f, 1.9f, 1.9f);
-        else if (Eaten > 70)
+        else if (Eaten >= TIER_SHIFT)
             transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
     }
 

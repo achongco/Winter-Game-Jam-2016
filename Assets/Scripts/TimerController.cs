@@ -8,7 +8,7 @@ public class TimerController : MonoBehaviour {
     public Text scoreText;
     public int score;
 
-    static float STARVATION_RATE = .0005f;
+    static float STARVATION_RATE = .004f;
 
     void Awake(){
         hungerBar.fillAmount = .5f;
