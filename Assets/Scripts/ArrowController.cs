@@ -18,7 +18,7 @@ public class ArrowController : MonoBehaviour {
     void Update()
     {
         transform.position = player.transform.position;
-        if(specialPositions.Count > 0)
+        if(specialPositions.Count > 0 && Vector2.Distance(transform.position, GetClosests()) < 15f)
         {
             transform.GetChild(0).gameObject.SetActive(true);
             Vector3 dir = GetClosests() - transform.position;
@@ -42,7 +42,6 @@ public class ArrowController : MonoBehaviour {
                 index_of_closests = i;
             }
         }
-        Debug.Log(specialPositions[index_of_closests]);
         return specialPositions[index_of_closests];
     }
 }
