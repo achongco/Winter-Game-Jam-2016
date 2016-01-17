@@ -30,7 +30,9 @@ public class foodScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		if (type == foodType.COW) {
+			texture.transform.localScale += new Vector3 (0.3f, 0.3f, 0.0f);
+		}
 
 
 	}
