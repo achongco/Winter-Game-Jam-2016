@@ -20,7 +20,11 @@ public class foodSpawner : MonoBehaviour {
 
 	public Sprite[] foodSprites;
 
+    public ArrowController acScript;
+
 	void Awake() {
+        acScript = GameObject.FindGameObjectWithTag("Arrow").GetComponent<ArrowController>();
+
 		current = this;
 		specialPositions = new List<Vector3>();
 		regularPositions = new List<Vector3>();
@@ -76,7 +80,6 @@ public class foodSpawner : MonoBehaviour {
 
 	public void returnFood (GameObject obj)
 	{
-		Debug.Log (obj.transform.position);
 		obj.SetActive (false);
 		foodScript script = obj.GetComponent<foodScript> ();
 		if (script.type == foodType.COW) {
@@ -142,6 +145,8 @@ public class foodSpawner : MonoBehaviour {
 				food.transform.position = specialPositions [randIndx] + new Vector3(0.5f, -0.5f, 0);
 				specialPositions.RemoveAt (randIndx);
 			}
+
+            acScript.specialPositions.Add(food.transform.position);
 		} else if (regularPositions.Count > 0) {
 			if (Random.Range (0, 5) == 0) {
 				script.type = foodType.HOTDOG;

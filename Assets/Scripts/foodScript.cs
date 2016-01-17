@@ -16,10 +16,14 @@ public class foodScript : MonoBehaviour {
 	public foodType type;
 	public BoxCollider2D theBox;
 	public SpriteRenderer sr;
-	//private Vector3 origTextScale;
+    //private Vector3 origTextScale;
 
-	void Awake() {
-		texture = transform.Find ("Texture");
+    public ArrowController acScript;
+
+    void Awake() {
+        acScript = GameObject.FindGameObjectWithTag("Arrow").GetComponent<ArrowController>();
+
+        texture = transform.Find ("Texture");
 		foodSpawn = GameObject.FindGameObjectWithTag("GameController").GetComponent<foodSpawner>();
 		texture = transform.Find("Texture").transform;
 		theBox.enabled = true;
@@ -47,9 +51,12 @@ public class foodScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D hamburgerCollision)
 	{
 		if (hamburgerCollision.gameObject.tag == "Player") {
-			Debug.Log ("Before: " + transform.position);
+            if(gameObject.name == "COW"|| gameObject.name == "TURKEY")
+            {
+                acScript.specialPositions.Remove(transform.position);
+            }
+
 			transform.position -= new Vector3 (0.5f, -0.5f, 0);
-			Debug.Log ("After: " + transform.position);
 
 			foodSpawner.current.returnFood(gameObject);
 		}
