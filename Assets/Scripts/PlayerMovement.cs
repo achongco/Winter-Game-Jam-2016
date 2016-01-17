@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     float max_Speed = 7f;
     float scale = .7f;
 
+    public AudioClip foodSound;
+    public GameObject foodParticle;
     public LayerMask blockingLayer;
     public Image hungerBar;
 
@@ -28,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Food"){
             Eat();
+            FoodParticle();
+            FoodSound();
             Debug.Log(Eaten);
         }
     }
@@ -75,5 +79,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    void FoodParticle()
+    {
+        Object particle = Instantiate(foodParticle, transform.position, transform.rotation);
+        Destroy(particle, 1);
+
+    }
+
+    void FoodSound()
+    {
+        AudioSource.PlayClipAtPoint(foodSound, transform.position);
+    }
 
 }
