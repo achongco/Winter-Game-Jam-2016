@@ -36,6 +36,7 @@ public class foodSpawner : MonoBehaviour {
 			spawnFood ();
 
 		}
+
 	}
 
 	public void returnFood (GameObject obj)
@@ -49,6 +50,10 @@ public class foodSpawner : MonoBehaviour {
 
 	private GameObject getFood()
 	{
+		if (foodPool.Count == 0) {
+			Debug.Log ("Whoops");
+			return null;
+		}
 		return foodPool.Pop ();
 	}
 
@@ -68,13 +73,13 @@ public class foodSpawner : MonoBehaviour {
 
 		GameObject food = getFood ();
 		food.SetActive (true);
-		food.transform = new Vector2 (Random.Range (0, 5), Random.Range (0, 5));
+		food.transform.position = new Vector2 (Random.Range (-10, 10), Random.Range (-10, 10));
 
 		foodScript script = food.GetComponent<foodScript> ();
 
 		int i = Random.Range (0, numOfFoodTypes);
 		script.type = (foodType)i;
-		food.name = script.name.ToString;
+		food.name = script.type.ToString();
 		script.sr.sprite = foodSprites [i];
 
 		script.initializeVars ();
