@@ -125,7 +125,7 @@ public class foodSpawner : MonoBehaviour {
 				script.sr.sprite = foodSprites [(int)foodType.COW];
 				int randIndx = (int)Random.Range (0, specialTransforms.Count);
 				//Debug.Log ("cow accessing " + randIndx);
-				food.transform.position = specialTransforms [randIndx].position + new Vector3(0.5f, 1.0f, 0);
+				food.transform.position = specialTransforms [randIndx].position + new Vector3(0.5f, -0.5f, 0);
 
 				specialTransforms.RemoveAt (randIndx);
 			} else {
@@ -134,7 +134,7 @@ public class foodSpawner : MonoBehaviour {
 				script.sr.sprite = foodSprites [(int)foodType.TURKEY];
 				int randIndx = (int)Random.Range (0, specialTransforms.Count);
 				//Debug.Log ("turkey accessing " + randIndx);
-				food.transform.position = specialTransforms [randIndx].position + new Vector3(0.5f, 1.0f, 0);
+				food.transform.position = specialTransforms [randIndx].position + new Vector3(0.5f, -0.5f, 0);
 				specialTransforms.RemoveAt (randIndx);
 			}
 		} else if (regularTransforms.Count > 0) {
@@ -144,7 +144,7 @@ public class foodSpawner : MonoBehaviour {
 				script.sr.sprite = foodSprites [(int)foodType.HOTDOG];
 				int randIndx = (int)Random.Range (0, regularTransforms.Count);
 				//Debug.Log ("hotdog accessing " + randIndx);
-				food.transform.position = regularTransforms [randIndx].position + new Vector3(0.5f, 1.0f, 0);
+				food.transform.position = regularTransforms [randIndx].position + new Vector3(0.5f, -0.5f, 0);
 
 				regularTransforms.RemoveAt (randIndx);
 			} else {
@@ -153,7 +153,7 @@ public class foodSpawner : MonoBehaviour {
 				script.sr.sprite = foodSprites [(int)foodType.HAMBURGER];
 				int randIndx = (int)Random.Range (0, regularTransforms.Count);
 				//Debug.Log ("hamburger accessing " + randIndx);
-				food.transform.position = regularTransforms [randIndx].position + new Vector3(0.5f, 1.0f, 0);
+				food.transform.position = regularTransforms [randIndx].position + new Vector3(0.5f, -0.5f, 0);
 
 				regularTransforms.RemoveAt (randIndx);
 			}

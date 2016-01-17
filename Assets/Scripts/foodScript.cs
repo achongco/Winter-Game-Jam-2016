@@ -40,10 +40,10 @@ public class foodScript : MonoBehaviour {
 		
 	}
 
-	void OnCollisionEnter2D(Collision2D hamburgerCollision)
+	void OnTriggerEnter2D(Collider2D hamburgerCollision)
 	{
 		if (hamburgerCollision.gameObject.tag == "Player") {
-			transform.position -= new Vector3 (0.5f, 0.5f, 0);
+			transform.position -= new Vector3 (0.5f, -0.5f, 0);
 			foodSpawner.current.returnFood(gameObject);
 		}
 	}
