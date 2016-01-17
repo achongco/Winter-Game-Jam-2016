@@ -45,7 +45,9 @@ public class foodScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D hamburgerCollision)
 	{
 		if (hamburgerCollision.gameObject.tag == "Player") {
+			Debug.Log ("Before: " + transform.position);
 			transform.position -= new Vector3 (0.5f, -0.5f, 0);
+			Debug.Log ("After: " + transform.position);
 			if (type == foodType.COW) {
 				texture.transform.localScale -= new Vector3 (0.3f, 0.3f, 0.0f);
 			}
