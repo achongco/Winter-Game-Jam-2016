@@ -16,13 +16,21 @@ public class foodScript : MonoBehaviour {
 	public foodType type;
 	public BoxCollider2D theBox;
 	public SpriteRenderer sr;
+	private Vector3 origTextScale;
 
-	// Use this for initialization
-	void Start () {
+	void Awake() {
+		texture = transform.Find ("Texture");
 		foodSpawn = GameObject.FindGameObjectWithTag("GameController").GetComponent<foodSpawner>();
 		texture = transform.Find("Texture").transform;
 		theBox.enabled = true;
 		sr = texture.GetComponent<SpriteRenderer> ();
+
+		origTextScale = texture.localScale;
+	}
+
+	// Use this for initialization
+	void Start () {
+		
 
 
 	}
@@ -35,13 +43,18 @@ public class foodScript : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D hamburgerCollision)
 	{
 		if (hamburgerCollision.gameObject.tag == "Player") {
-			//foodSpawn.counter--;
 			foodSpawner.current.returnFood(gameObject);
 		}
 	}
 
 	public void initializeVars()
 	{
+		//texture.localScale = origTextScale * theBox.size;
+		sr.enabled = true;
+		theBox.enabled = true;
+
+		theBox.isTrigger = true;
+
 		if (type == foodType.HAMBURGER)
 			foodVal = 1000;
 		else if (type == foodType.HOTDOG)
