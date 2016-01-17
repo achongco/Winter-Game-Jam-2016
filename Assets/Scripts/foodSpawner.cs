@@ -34,6 +34,8 @@ public class foodSpawner : MonoBehaviour {
 			++spawnedFood; //compensate for returnFood
 		}
 
+		specialTransforms = new List<Transform> ();
+		regularTransforms = new List<Transform> ();
 
 		//grab tile objects
 		specialTiles = GameObject.FindGameObjectsWithTag("specialFoodSpot");
@@ -50,8 +52,10 @@ public class foodSpawner : MonoBehaviour {
 
 		for (int i = 0; i < regularTiles.Length; ++i) {
 			regularTransforms.Add (regularTiles [i].transform);
+			//Debug.Log (regularTiles [i].transform.position);
 		}
 		//Debug.Log ("regularTransforms size " + regularTransforms.Count);
+
 	}
 
 	// Use this for initialization
@@ -154,6 +158,7 @@ public class foodSpawner : MonoBehaviour {
 				int randIndx = (int)Random.Range (0, regularTransforms.Count);
 				//Debug.Log ("hamburger accessing " + randIndx);
 				food.transform.position = regularTransforms [randIndx].position + new Vector3(0.5f, -0.5f, 0);
+				//Debug.Log (food.transform.position);
 
 				regularTransforms.RemoveAt (randIndx);
 			}
