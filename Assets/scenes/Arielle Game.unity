@@ -3706,6 +3706,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11431188, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
+      propertyPath: foodSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 965206fa2aa7d6544800fd85b9a76bf3, type: 3}
+    - target: {fileID: 11431188, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
+      propertyPath: foodParticle
+      value: 
+      objectReference: {fileID: 122428, guid: a89d91388f0481846afa248fc0a17c41, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
   m_IsPrefabParent: 0

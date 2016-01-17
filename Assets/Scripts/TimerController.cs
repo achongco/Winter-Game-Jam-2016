@@ -11,10 +11,10 @@ public class TimerController : MonoBehaviour {
     public int score;
 
     bool deathRunning = false;
-    static float STARVATION_RATE = .0015f;
+    static float STARVATION_RATE = .004f;
 
     void Awake(){
-        hungerBar.fillAmount = 1f;
+        hungerBar.fillAmount = .5f;
     }
     
     void Update()
@@ -24,9 +24,7 @@ public class TimerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (score > 0) {
-			hungerBar.fillAmount -= STARVATION_RATE;
-		}
+        hungerBar.fillAmount -= STARVATION_RATE;
         CheckForDeath();
 	}
 
