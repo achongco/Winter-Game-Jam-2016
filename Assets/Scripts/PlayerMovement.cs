@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    float max_Speed = 7f;
+    float max_Speed = 9f;
     float scale = .7f;
 
     public AudioClip foodSound;
@@ -12,8 +12,11 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask blockingLayer;
     public Image hungerBar;
 
+	public TimerController sb;
+
     int Eaten;
-    static int TIER_SHIFT = 35;
+	static int startEaten = 10;
+	static int TIER_SHIFT = 25;
 
     private bool move = false;
     public bool isDead = false;
@@ -28,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Eaten = 0;
+		Eaten = startEaten;
         rbody = GetComponent<Rigidbody2D>();
 		//set up the tester
 		//tester = new GameObject ();
@@ -39,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Food"){
-            Eat();
+			Eat (col.gameObject.GetComponent<foodScript> ());
             FoodParticle();
             FoodSound();
             Debug.Log(Eaten);
@@ -82,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
 	void GrowTo(Vector3? scale){
 		Debug.Log ("Growing");
 		//makes shure the player will not grow into a collision before they grow 
-		//tester.transform.localScale = (Vector3)scale;
+		testColider.transform.localScale = (Vector3)scale;
 		if (!testColider.IsTouchingLayers (8)) {
 			GameObject throwAway = new GameObject();
 			throwAway.transform.position = testColider.transform.position;
@@ -104,9 +107,10 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void Eat(){
+	public void Eat(foodScript food){
         Eaten++;
         hungerBar.fillAmount = 1.0f;
+		sb.score += food.getFoodVal ();
         Grow();
     }
 
