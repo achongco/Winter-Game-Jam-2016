@@ -43,6 +43,7 @@ public class foodScript : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D hamburgerCollision)
 	{
 		if (hamburgerCollision.gameObject.tag == "Player") {
+			transform.position -= new Vector3 (0.5f, 0.5f, 0);
 			foodSpawner.current.returnFood(gameObject);
 		}
 	}
@@ -63,5 +64,10 @@ public class foodScript : MonoBehaviour {
 			foodVal = 20000;
 		else if (type == foodType.COW)
 			foodVal = 30000;
+	}
+
+	public int getFoodVal()
+	{
+		return foodVal;
 	}
 }

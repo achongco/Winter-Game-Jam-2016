@@ -6,7 +6,9 @@ public class foodSpawner : MonoBehaviour {
 
 	public static foodSpawner current;
 	private int spawnedFood = 0;
-	private int maxFood = 50;
+	//private int spawnedSpecialFood = 0;
+	//private int maxSpecial = 4;
+	private int maxFood = 100;
 	private Stack<GameObject> foodPool;
 	private foodScript foodCode;
 	private Object basicFood;
@@ -35,16 +37,21 @@ public class foodSpawner : MonoBehaviour {
 
 		//grab tile objects
 		specialTiles = GameObject.FindGameObjectsWithTag("specialFoodSpot");
+		//Debug.Log ("specialTiles size " + specialTiles.Length);
 		regularTiles = GameObject.FindGameObjectsWithTag ("foodSpot");
+		//Debug.Log ("regularTiles size " + regularTiles.Length);
+
 
 		//add tranforms to lists
 		for (int i = 0; i < specialTiles.Length; ++i) {
 			specialTransforms.Add (specialTiles [i].transform);
 		}
+		//Debug.Log ("SpecialTransforms size " + specialTransforms.Count);
 
 		for (int i = 0; i < regularTiles.Length; ++i) {
 			regularTransforms.Add (regularTiles [i].transform);
 		}
+		//Debug.Log ("regularTransforms size " + regularTransforms.Count);
 	}
 
 	// Use this for initialization
@@ -65,6 +72,12 @@ public class foodSpawner : MonoBehaviour {
 
 	public void returnFood (GameObject obj)
 	{
+		foodScript script = obj.GetComponent<foodScript> ();
+		if (script.type == foodType.TURKEY || script.type == foodType.COW) {
+			specialTransforms.Add (obj.transform);
+		} else {
+				regularTransforms.Add (obj.transform);
+		}
 		obj.transform.parent = transform;
 		obj.SetActive (false);
 		obj.name = "Pooled Food";
@@ -96,7 +109,7 @@ public class foodSpawner : MonoBehaviour {
 		food.SetActive (true);
 
 		//change this
-		food.transform.position = new Vector2 (Random.Range (-10, 10), Random.Range (-10, 10));
+		//food.transform.position = new Vector2 (Random.Range (-10, 10), Random.Range (-10, 10));
 
 		foodScript script = food.GetComponent<foodScript> ();
 
@@ -105,36 +118,43 @@ public class foodSpawner : MonoBehaviour {
 		Random rnd = new Random();
 		bool isSpecial = (0 == (int)Random.Range (0, 10));
 
-		if (isSpecial) {
+		if (isSpecial && specialTransforms.Count > 0) {
 			if (Random.Range (0, 5) == 0) {
 				script.type = foodType.COW;
 				food.name = script.type.ToString ();
 				script.sr.sprite = foodSprites [(int)foodType.COW];
 				int randIndx = (int)Random.Range (0, specialTransforms.Count);
-				food.transform.position = specialTransforms [randIndx].position;
+				//Debug.Log ("cow accessing " + randIndx);
+				food.transform.position = specialTransforms [randIndx].position + new Vector3(0.5f, 1.0f, 0);
+
 				specialTransforms.RemoveAt (randIndx);
 			} else {
 				script.type = foodType.TURKEY;
 				food.name = script.type.ToString ();
 				script.sr.sprite = foodSprites [(int)foodType.TURKEY];
 				int randIndx = (int)Random.Range (0, specialTransforms.Count);
-				food.transform.position = specialTransforms [randIndx].position;
+				//Debug.Log ("turkey accessing " + randIndx);
+				food.transform.position = specialTransforms [randIndx].position + new Vector3(0.5f, 1.0f, 0);
 				specialTransforms.RemoveAt (randIndx);
 			}
-		} else {
+		} else if (regularTransforms.Count > 0) {
 			if (Random.Range (0, 5) == 0) {
 				script.type = foodType.HOTDOG;
 				food.name = script.type.ToString ();
 				script.sr.sprite = foodSprites [(int)foodType.HOTDOG];
 				int randIndx = (int)Random.Range (0, regularTransforms.Count);
-				food.transform.position = regularTransforms [randIndx].position;
+				//Debug.Log ("hotdog accessing " + randIndx);
+				food.transform.position = regularTransforms [randIndx].position + new Vector3(0.5f, 1.0f, 0);
+
 				regularTransforms.RemoveAt (randIndx);
 			} else {
 				script.type = foodType.HAMBURGER;
 				food.name = script.type.ToString ();
 				script.sr.sprite = foodSprites [(int)foodType.HAMBURGER];
 				int randIndx = (int)Random.Range (0, regularTransforms.Count);
-				food.transform.position = regularTransforms [randIndx].position;
+				//Debug.Log ("hamburger accessing " + randIndx);
+				food.transform.position = regularTransforms [randIndx].position + new Vector3(0.5f, 1.0f, 0);
+
 				regularTransforms.RemoveAt (randIndx);
 			}
 		}
