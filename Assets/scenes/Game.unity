@@ -2570,30 +2570,6 @@ Prefab:
       propertyPath: m_TagString
       value: specialFoodSpot
       objectReference: {fileID: 0}
-    - target: {fileID: 148852, guid: fa1ff2a6a0a7e3a40a8a8c2ca4e21b75, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059286, guid: fa1ff2a6a0a7e3a40a8a8c2ca4e21b75, type: 2}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6059286, guid: fa1ff2a6a0a7e3a40a8a8c2ca4e21b75, type: 2}
-      propertyPath: m_UsedByEffector
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 122288, guid: fa1ff2a6a0a7e3a40a8a8c2ca4e21b75, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 199294, guid: fa1ff2a6a0a7e3a40a8a8c2ca4e21b75, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 133904, guid: fa1ff2a6a0a7e3a40a8a8c2ca4e21b75, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa1ff2a6a0a7e3a40a8a8c2ca4e21b75, type: 2}
   m_IsPrefabParent: 0
@@ -2642,13 +2618,8 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   m_Material: {fileID: 2100000, guid: d3de60fee9e9b0c43bab5c24fc70d576, type: 3}
   m_Color: {r: 1, g: 1, b: 0, a: 1}
-=======
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
->>>>>>> origin/master
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3723,7 +3694,6 @@ Prefab:
       propertyPath: hungerBar
       value: 
       objectReference: {fileID: 1529587648}
-<<<<<<< HEAD
     - target: {fileID: 11431188, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
       propertyPath: timer
       value: 
@@ -3736,18 +3706,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-=======
->>>>>>> origin/master
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1713595314 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 191518, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
-  m_PrefabInternal: {fileID: 1674562185}
---- !u!4 &1713595319 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 475402, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
   m_PrefabInternal: {fileID: 1674562185}
 --- !u!1 &1870707166 stripped
 GameObject:
@@ -3770,45 +3734,3 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!1 &2043531406
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2043531407}
-  - 58: {fileID: 2043531408}
-  m_Layer: 9
-  m_Name: TestColider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2043531407
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2043531406}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1713595319}
-  m_RootOrder: 1
---- !u!58 &2043531408
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2043531406}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.1
