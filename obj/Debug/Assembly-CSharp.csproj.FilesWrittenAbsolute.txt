@@ -1,0 +1,17 @@
+/Users/kaylab/Winter-Game-Jam-2016/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/kaylab/Winter-Game-Jam-2016/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/kaylab/Winter-Game-Jam-2016/obj/Debug/Assembly-CSharp.dll
+/Users/kaylab/Winter-Game-Jam-2016/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/kaylab/Winter-Game-Jam-2016/Temp/bin/Debug/UnityEngine.dll
+/Users/kaylab/Winter-Game-Jam-2016/Temp/bin/Debug/UnityEditor.dll
+/Users/kaylab/Winter-Game-Jam-2016/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/kaylab/Winter-Game-Jam-2016/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/kaylab/Winter-Game-Jam-2016/Temp/bin/Debug/Mono.Cecil.dll
+/Users/kaylab/Winter-Game-Jam-2016/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/kaylab/Winter-Game-Jam-2016/Temp/bin/Debug/Unity.DataContract.dll
+/Users/kaylab/Winter-Game-Jam-2016/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/kaylab/Winter-Game-Jam-2016/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/kaylab/Winter-Game-Jam-2016/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/kaylab/Winter-Game-Jam-2016/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/kaylab/Winter-Game-Jam-2016/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/kaylab/Winter-Game-Jam-2016/Temp/bin/Debug/Mono.Cecil.Mdb.dll
