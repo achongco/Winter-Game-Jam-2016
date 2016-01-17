@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &105014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 446450}
+  - 58: {fileID: 5850990}
+  m_Layer: 9
+  m_Name: Tester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &105866
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,6 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 422138}
   - 212: {fileID: 21236518}
+  - 95: {fileID: 9511664}
   m_Layer: 0
   m_Name: PlayerHead
   m_TagString: Untagged
@@ -47,6 +64,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 475402}
   m_RootOrder: 0
+--- !u!4 &446450
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 475402}
+  m_RootOrder: 1
 --- !u!4 &475402
 Transform:
   m_ObjectHideFlags: 1
@@ -58,6 +87,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 422138}
+  - {fileID: 446450}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5009128
@@ -77,6 +107,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &5850990
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105014}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.8
 --- !u!58 &5886604
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -90,7 +134,24 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.6
+--- !u!95 &9511664
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105866}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a93f1c5f5522f4295c197cedef1fe1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11431188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,13 +163,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edffc5cb8aaf26c448948c5609f4d741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0
-  distance: 0
-  max_Speed: 5
+  foodSound: {fileID: 8300000, guid: 965206fa2aa7d6544800fd85b9a76bf3, type: 3}
+  cowSound: {fileID: 8300000, guid: fb3292b5f95569642861da69c381c73a, type: 3}
+  turkeySound: {fileID: 8300000, guid: 6c44a24f21ca5f146b61cf07fbbcba74, type: 3}
+  foodParticle: {fileID: 122428, guid: a89d91388f0481846afa248fc0a17c41, type: 2}
+  bloodParticle: {fileID: 134822, guid: 7793c3d35e454914ba5423d821bbd223, type: 2}
+  cowHeadParticle: {fileID: 166662, guid: 3dd0346957d4490468ccc620c0660ec2, type: 2}
   blockingLayer:
     serializedVersion: 2
     m_Bits: 256
   hungerBar: {fileID: 0}
+  sb: {fileID: 0}
+  isDead: 0
 --- !u!212 &21236518
 SpriteRenderer:
   m_ObjectHideFlags: 1

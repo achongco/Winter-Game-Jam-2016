@@ -8,7 +8,11 @@ public class PlayerMovement : MonoBehaviour
     float scale = .7f;
 
     public AudioClip foodSound;
+    public AudioClip cowSound;
+    public AudioClip turkeySound;
     public GameObject foodParticle;
+    public GameObject bloodParticle;
+    public GameObject cowHeadParticle;
     public LayerMask blockingLayer;
     public Image hungerBar;
 
@@ -43,8 +47,8 @@ public class PlayerMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Food"){
 			Eat (col.gameObject.GetComponent<foodScript> ());
-            FoodParticle();
-            FoodSound();
+            FoodParticle(col.gameObject.GetComponent<foodScript>().getFoodVal());
+            FoodSound(col.gameObject.GetComponent<foodScript>().getFoodVal());
             Debug.Log(Eaten);
         }
     }
@@ -115,16 +119,37 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    void FoodParticle()
+    void FoodParticle(int food)
     {
-        Object particle = Instantiate(foodParticle, transform.position, transform.rotation);
-        Destroy(particle, 1);
+        if (food >= 30000)
+        {
+            Object particle = Instantiate(bloodParticle, transform.position, transform.rotation);
+            Destroy(particle, 1);
+            Object particle2 = Instantiate(cowHeadParticle, transform.position, transform.rotation);
+            Destroy(particle2, 1);
+        }
+        else
+        {
+            Object particle = Instantiate(foodParticle, transform.position, transform.rotation);
+            Destroy(particle, 1);
+        }
 
     }
 
-    void FoodSound()
+    void FoodSound(int food)
     {
-        AudioSource.PlayClipAtPoint(foodSound, transform.position);
+        if (food >= 30000)
+        {
+            AudioSource.PlayClipAtPoint(cowSound, transform.position);
+        }
+        else if (food >= 20000)
+        {
+            AudioSource.PlayClipAtPoint(turkeySound, transform.position);
+        }
+        else
+        {
+            AudioSource.PlayClipAtPoint(foodSound, transform.position);
+        }
     }
 
 }
