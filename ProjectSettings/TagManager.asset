@@ -3,9 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - specialFoodSpot
-  - foodSpot
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -15,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - Wall
+  - 
   - 
   - 
   - 
@@ -40,12 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Player
-    uniqueID: 3992489161
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: blockingLayer
-    uniqueID: 324502275
     locked: 0
