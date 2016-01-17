@@ -6,7 +6,7 @@ public class foodSpawner : MonoBehaviour {
 
 	public static foodSpawner current;
 	private int spawnedFood = 0;
-	private int maxFood = 100;
+	private int maxFood = 50;
 	private Stack<GameObject> foodPool;
 	private foodScript foodCode;
 	private Object basicFood;
