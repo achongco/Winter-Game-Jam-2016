@@ -16,7 +16,7 @@ public class foodScript : MonoBehaviour {
 	public foodType type;
 	public BoxCollider2D theBox;
 	public SpriteRenderer sr;
-	private Vector3 origTextScale;
+	//private Vector3 origTextScale;
 
 	void Awake() {
 		texture = transform.Find ("Texture");
@@ -25,7 +25,7 @@ public class foodScript : MonoBehaviour {
 		theBox.enabled = true;
 		sr = texture.GetComponent<SpriteRenderer> ();
 
-		origTextScale = texture.localScale;
+		//origTextScale = texture.localScale;
 	}
 
 	// Use this for initialization
@@ -48,9 +48,9 @@ public class foodScript : MonoBehaviour {
 			Debug.Log ("Before: " + transform.position);
 			transform.position -= new Vector3 (0.5f, -0.5f, 0);
 			Debug.Log ("After: " + transform.position);
-			if (type == foodType.COW) {
-				texture.transform.localScale -= new Vector3 (0.3f, 0.3f, 0.0f);
-			}
+//			if (type == foodType.COW) {
+//				texture.transform.localScale -= new Vector3 (0.3f, 0.3f, 0.0f);
+//			}
 
 			foodSpawner.current.returnFood(gameObject);
 		}
