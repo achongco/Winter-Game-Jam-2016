@@ -3694,6 +3694,14 @@ Prefab:
       propertyPath: hungerBar
       value: 
       objectReference: {fileID: 1529587648}
+    - target: {fileID: 11431188, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 601848207}
+    - target: {fileID: 11431188, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
+      propertyPath: max_Speed
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
   m_IsPrefabParent: 0

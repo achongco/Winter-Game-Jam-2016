@@ -4,14 +4,17 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    float max_Speed = 7f;
+    public float max_Speed = 9f;
     float scale = .7f;
 
     public LayerMask blockingLayer;
     public Image hungerBar;
 
+	public int startEaten = 10;
     int Eaten;
-    static int TIER_SHIFT = 35;
+    public static int TIER_SHIFT = 25;
+
+	public TimerController timer;
 
     private bool move = false;
     public bool isDead = false;
@@ -21,13 +24,13 @@ public class PlayerMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Eaten = 0;
+		Eaten = startEaten;
         rbody = GetComponent<Rigidbody2D>();
     }
 
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Food"){
-            Eat();
+			Eat(col.gameObject.transform.GetComponent<foodScript>());
             Debug.Log(Eaten);
         }
     }
@@ -68,8 +71,9 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void Eat(){
+	public void Eat(foodScript food){
         Eaten++;
+		timer.score += food.getFoodVal ();
         hungerBar.fillAmount = 1.0f;
         Grow();
     }
