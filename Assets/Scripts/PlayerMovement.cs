@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     static int TIER_SHIFT = 35;
 
     private bool move = false;
+    public bool isDead = false;
     private RaycastHit2D hit;
     Rigidbody2D rbody;
 
@@ -35,12 +36,17 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         //Directional command handlers
-        float move_x = Input.GetAxis("Horizontal");    //Get input for x-axis
-        float move_y = Input.GetAxis("Vertical");      //Get input for y-axis
-        if (move_x != 0f)
-            move_y = 0f;
-        RotateCharacter(move_x, move_y);
-        GetComponent<Rigidbody2D>().velocity = new Vector2(move_x * max_Speed, move_y * max_Speed);
+        if (!isDead)
+        {
+            float move_x = Input.GetAxis("Horizontal");    //Get input for x-axis
+            float move_y = Input.GetAxis("Vertical");      //Get input for y-axis
+            if (move_x != 0f)
+                move_y = 0f;
+            RotateCharacter(move_x, move_y);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(move_x * max_Speed, move_y * max_Speed);
+        }
+        else
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
     }
     void Grow(){
         if(Eaten> TIER_SHIFT*4)
