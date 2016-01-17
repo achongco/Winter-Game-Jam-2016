@@ -2668,6 +2668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hungerBar: {fileID: 1529587648}
   scoreText: {fileID: 411232507}
+  player: {fileID: 1713595314}
   score: 0
 --- !u!4 &601848208
 Transform:
@@ -3155,3 +3156,24 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 191518, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
   m_PrefabInternal: {fileID: 1674562185}
+--- !u!1 &1870707166 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 105866, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
+  m_PrefabInternal: {fileID: 1674562185}
+--- !u!95 &1870707168
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1870707166}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a93f1c5f5522f4295c197cedef1fe1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1

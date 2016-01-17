@@ -6,8 +6,10 @@ public class TimerController : MonoBehaviour {
 
     public Image hungerBar;
     public Text scoreText;
+    public GameObject player;
     public int score;
 
+    bool deathRunning = false;
     static float STARVATION_RATE = .004f;
 
     void Awake(){
@@ -28,7 +30,16 @@ public class TimerController : MonoBehaviour {
     
 
     void CheckForDeath(){
-        if (hungerBar.fillAmount <= 0.0f)
-            Debug.Log("DIED FROM STARVATION");
+        if (hungerBar.fillAmount <= 0.0f && !deathRunning) {
+            StartCoroutine("DeathSequence");
+        }
+    }
+
+    IEnumerator DeathSequence()
+    {
+        deathRunning = true;
+        player.transform.GetChild(0).GetComponent<Animator>().SetTrigger("isDead");
+        yield return new WaitForSeconds(.5f);
+        Time.timeScale = 0.0f;
     }
 }
