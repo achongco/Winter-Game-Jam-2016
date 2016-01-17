@@ -166,7 +166,7 @@ Prefab:
         type: 3}
     - target: {fileID: 21260816, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
       propertyPath: m_SortingLayerID
-      value: -627832487
+      value: -203023753
       objectReference: {fileID: 0}
     - target: {fileID: 5025542, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
       propertyPath: m_IsKinematic
@@ -188,6 +188,14 @@ Prefab:
       propertyPath: hungerBar
       value: 
       objectReference: {fileID: 1375787716}
+    - target: {fileID: 21263412, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
+      propertyPath: m_SortingLayerID
+      value: -203023753
+      objectReference: {fileID: 0}
+    - target: {fileID: 21263412, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6143256, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
     - {fileID: 5815062, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
