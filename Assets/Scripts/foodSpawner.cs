@@ -10,16 +10,38 @@ public class foodSpawner : MonoBehaviour {
 	private Stack<GameObject> foodPool;
 	private foodScript foodCode;
 	private Object basicFood;
+	private GameObject[] specialTiles;
+	private GameObject[] regularTiles;
+
+	private List<Transform> specialTransforms;
+	private List<Transform> regularTransforms;
 
 	public Sprite[] foodSprites;
 
 	void Awake() {
 		current = this;
+		//specialTiles = new GameObject[20];
+		//regularTiles = new GameObject[500];
+
 		basicFood = Resources.Load ("Food");
 		foodPool = new Stack<GameObject> ();
 		for (int i = 0; i < maxFood; ++i) {
 			returnFood((GameObject)Instantiate(basicFood));
 			++spawnedFood; //compensate for returnFood
+		}
+
+
+		//grab tile objects
+		specialTiles = GameObject.FindGameObjectsWithTag("specialFoodSpot");
+		regularTiles = GameObject.FindGameObjectsWithTag ("foodSpot");
+
+		//add tranforms to lists
+		for (int i = 0; i < specialTiles.Length; ++i) {
+			specialTransforms.Add (specialTiles [i].transform);
+		}
+
+		for (int i = 0; i < regularTiles.Length; ++i) {
+			regularTransforms.Add (regularTiles [i].transform);
 		}
 	}
 
@@ -68,11 +90,10 @@ public class foodSpawner : MonoBehaviour {
 
 		Vector2 spawn = Vector2.zero;
 
-
-		//Decide where it's going to spawn
-
 		GameObject food = getFood ();
 		food.SetActive (true);
+
+		//change this
 		food.transform.position = new Vector2 (Random.Range (-10, 10), Random.Range (-10, 10));
 
 		foodScript script = food.GetComponent<foodScript> ();
@@ -87,20 +108,32 @@ public class foodSpawner : MonoBehaviour {
 				script.type = foodType.COW;
 				food.name = script.type.ToString ();
 				script.sr.sprite = foodSprites [(int)foodType.COW];
+				int randIndx = (int)Random.Range (0, specialTransforms.Count);
+				food.transform.position = specialTransforms [randIndx];
+				specialTransforms.RemoveAt (randIndx);
 			} else {
 				script.type = foodType.TURKEY;
 				food.name = script.type.ToString ();
 				script.sr.sprite = foodSprites [(int)foodType.TURKEY];
+				int randIndx = (int)Random.Range (0, specialTransforms.Count);
+				food.transform.position = specialTransforms [randIndx];
+				specialTransforms.RemoveAt (randIndx);
 			}
 		} else {
 			if (Random.Range (0, 5) == 0) {
 				script.type = foodType.HOTDOG;
 				food.name = script.type.ToString ();
 				script.sr.sprite = foodSprites [(int)foodType.HOTDOG];
+				int randIndx = (int)Random.Range (0, regularTransforms.Count);
+				food.transform.position = regularTransforms [randIndx];
+				regularTransforms.RemoveAt (randIndx);
 			} else {
 				script.type = foodType.HAMBURGER;
 				food.name = script.type.ToString ();
 				script.sr.sprite = foodSprites [(int)foodType.HAMBURGER];
+				int randIndx = (int)Random.Range (0, regularTransforms.Count);
+				food.transform.position = regularTransforms [randIndx];
+				regularTransforms.RemoveAt (randIndx);
 			}
 		}
 
