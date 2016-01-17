@@ -3576,6 +3576,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1713595314}
+--- !u!1 &1513556360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1513556361}
+  - 58: {fileID: 1513556362}
+  m_Layer: 9
+  m_Name: Tester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1513556361
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1513556360}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1713595319}
+  m_RootOrder: 1
+--- !u!58 &1513556362
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1513556360}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.8
 --- !u!1 &1529587646
 GameObject:
   m_ObjectHideFlags: 0
@@ -3706,12 +3748,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11431188, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
+      propertyPath: sb
+      value: 
+      objectReference: {fileID: 601848207}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1713595314 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 191518, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
+  m_PrefabInternal: {fileID: 1674562185}
+--- !u!4 &1713595319 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 475402, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
   m_PrefabInternal: {fileID: 1674562185}
 --- !u!1 &1870707166 stripped
 GameObject:
