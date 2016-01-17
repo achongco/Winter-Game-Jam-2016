@@ -79,6 +79,10 @@ public class foodSpawner : MonoBehaviour {
 		Debug.Log (obj.transform.position);
 		obj.SetActive (false);
 		foodScript script = obj.GetComponent<foodScript> ();
+		if (script.type == foodType.COW) {
+			script.texture.transform.localScale -= new Vector3 (0.3f, 0.3f, 0.0f);
+		}
+			
 		if (script.type == foodType.TURKEY || script.type == foodType.COW) {
 			specialPositions.Add (obj.transform.position);
 		} else {
@@ -128,7 +132,6 @@ public class foodSpawner : MonoBehaviour {
 				int randIndx = (int)Random.Range (0, specialPositions.Count);
 				//Debug.Log ("cow accessing " + randIndx);
 				food.transform.position = specialPositions [randIndx] + new Vector3(0.5f, -0.5f, 0);
-
 				specialPositions.RemoveAt (randIndx);
 			} else {
 				script.type = foodType.TURKEY;
