@@ -46,6 +46,10 @@ public class foodScript : MonoBehaviour {
 	{
 		if (hamburgerCollision.gameObject.tag == "Player") {
 			transform.position -= new Vector3 (0.5f, -0.5f, 0);
+			if (type == foodType.COW) {
+				texture.transform.localScale -= new Vector3 (0.3f, 0.3f, 0.0f);
+			}
+
 			foodSpawner.current.returnFood(gameObject);
 		}
 	}
