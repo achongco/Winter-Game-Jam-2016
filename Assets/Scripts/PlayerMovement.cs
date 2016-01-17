@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public int startEaten = 10;
     int Eaten;
-    public static int TIER_SHIFT = 25;
+    static int TIER_SHIFT = 25;
 
 	public TimerController timer;
 
