@@ -79,11 +79,7 @@ public class foodSpawner : MonoBehaviour {
 
 		int i = Random.Range (0, numOfFoodTypes);
 		script.type = (foodType)i;
-<<<<<<< HEAD
-		food.name = script.name.ToString();
-=======
 		food.name = script.type.ToString();
->>>>>>> origin/master
 		script.sr.sprite = foodSprites [i];
 
 		script.initializeVars ();
