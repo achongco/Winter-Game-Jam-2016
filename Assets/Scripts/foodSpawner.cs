@@ -6,7 +6,7 @@ public class foodSpawner : MonoBehaviour {
 
 	public static foodSpawner current;
 	private int spawnedFood = 0;
-	private int maxFood = 20;
+	private int maxFood = 100;
 	private Stack<GameObject> foodPool;
 	private foodScript foodCode;
 	private Object basicFood;
@@ -77,10 +77,37 @@ public class foodSpawner : MonoBehaviour {
 
 		foodScript script = food.GetComponent<foodScript> ();
 
-		int i = Random.Range (0, numOfFoodTypes);
-		script.type = (foodType)i;
-		food.name = script.type.ToString();
-		script.sr.sprite = foodSprites [i];
+
+		//check if its going to be special
+		Random rnd = new Random();
+		bool isSpecial = (0 == (int)Random.Range (0, 10));
+
+		if (isSpecial) {
+			if (Random.Range (0, 5) == 0) {
+				script.type = foodType.COW;
+				food.name = script.type.ToString ();
+				script.sr.sprite = foodSprites [(int)foodType.COW];
+			} else {
+				script.type = foodType.TURKEY;
+				food.name = script.type.ToString ();
+				script.sr.sprite = foodSprites [(int)foodType.TURKEY];
+			}
+		} else {
+			if (Random.Range (0, 5) == 0) {
+				script.type = foodType.HOTDOG;
+				food.name = script.type.ToString ();
+				script.sr.sprite = foodSprites [(int)foodType.HOTDOG];
+			} else {
+				script.type = foodType.HAMBURGER;
+				food.name = script.type.ToString ();
+				script.sr.sprite = foodSprites [(int)foodType.HAMBURGER];
+			}
+		}
+
+//		int i = Random.Range (0, numOfFoodTypes);
+//		script.type = (foodType)i;
+//		food.name = script.type.ToString();
+//		script.sr.sprite = foodSprites [i];
 
 		script.initializeVars ();
 
