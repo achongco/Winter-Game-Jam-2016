@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\foodSpawner.cs">
     <Files>
-      <File FileName="Assets\Scripts\foodSpawner.cs" Line="77" Column="35" />
+      <File FileName="Assets\Scripts\foodSpawner.cs" Line="86" Column="22" />
       <File FileName="Assets\Scripts\foodScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

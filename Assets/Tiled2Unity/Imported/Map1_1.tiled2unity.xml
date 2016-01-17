@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 1/16/2016 16:14:19-->
+<!--Last exported: 1/16/2016 18:40:56-->
 <Tiled2Unity version="1.0.2.1">
   <AssignMaterial mesh="mesh_0001" material="SpecialWalls" />
   <AssignMaterial mesh="mesh_0002" material="Wall" />
@@ -101,7 +101,7 @@
         </PolygonCollider2D>
       </GameObject>
     </GameObject>
-    <GameObject name="Special Points" x="0" y="0">
+    <GameObject name="Special Points" x="0" y="0" isTrigger="true">
       <GameObject name="RectangleObject" x="26" y="-14" rotation="0" tag="specialFoodSpot">
         <BoxCollider2D width="1" height="1" />
       </GameObject>
