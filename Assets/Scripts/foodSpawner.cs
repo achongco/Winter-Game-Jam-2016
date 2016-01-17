@@ -72,6 +72,7 @@ public class foodSpawner : MonoBehaviour {
 
 	public void returnFood (GameObject obj)
 	{
+		obj.SetActive (false);
 		foodScript script = obj.GetComponent<foodScript> ();
 		if (script.type == foodType.TURKEY || script.type == foodType.COW) {
 			specialTransforms.Add (obj.transform);
@@ -79,7 +80,6 @@ public class foodSpawner : MonoBehaviour {
 				regularTransforms.Add (obj.transform);
 		}
 		obj.transform.parent = transform;
-		obj.SetActive (false);
 		obj.name = "Pooled Food";
 		foodPool.Push (obj);
 		spawnedFood--;
