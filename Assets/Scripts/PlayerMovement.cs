@@ -90,8 +90,8 @@ public class PlayerMovement : MonoBehaviour
 			GameObject throwAway = new GameObject();
 			throwAway.transform.position = testColider.transform.position;
 			throwAway.AddComponent<CircleCollider2D>().radius = testColider.radius;
-			transform.localScale = (Vector3)scale;
-			delayedGrow = null; //remove the need to grow
+//			transform.localScale = (Vector3)scale;
+//			delayedGrow = null; //remove the need to grow
 			//debug
 		} else {
 			delayedGrow = scale; //stash the scale to continue trying
