@@ -4,15 +4,13 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float time;
-    public float distance;
     public float max_Speed = 5f;
     float scale = .7f;
 
     public LayerMask blockingLayer;
     public Image hungerBar;
 
-    TimerController tcScript;
+    int Eaten;
 
     private bool move = false;
     private RaycastHit2D hit;
@@ -21,9 +19,14 @@ public class PlayerMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Eaten = 0;
         rbody = GetComponent<Rigidbody2D>();
-        tcScript = GameObject.FindGameObjectWithTag("GameController").GetComponent<TimerController>();
-        Grow();
+    }
+
+    void OnTriggerEnter2D(Collider2D col) {
+        if (col.gameObject.tag == "Food"){
+            Eat();
+        }
     }
 
     // Update is called once per frame
@@ -38,13 +41,13 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = new Vector2(move_x * max_Speed, move_y * max_Speed);
     }
     void Grow(){
-        if(tcScript.score>=280000)
+        if(Eaten>280)
             transform.localScale = new Vector3(3.0f, 3.0f, 3.0f);
-        if (tcScript.score>=210000)
+        if (Eaten > 210)
             transform.localScale = new Vector3(2.7f, 2.7f, 2.7f);
-        else if (tcScript.score>=140000)
+        else if (Eaten > 140)
             transform.localScale = new Vector3(1.9f, 1.9f, 1.9f);
-        else if (tcScript.score>=70000)
+        else if (Eaten > 70)
             transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
     }
 
@@ -57,8 +60,9 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void Eat(float fillValue){
-        hungerBar.fillAmount += fillValue;
+    public void Eat(){
+        Eaten++;
+        hungerBar.fillAmount = 1.0f;
         Grow();
     }
 
