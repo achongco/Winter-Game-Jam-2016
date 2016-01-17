@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     float scale = .7f;
 
     public LayerMask blockingLayer;
-    public GameObject belly;
     public Image hungerBar;
 
     TimerController tcScript;
