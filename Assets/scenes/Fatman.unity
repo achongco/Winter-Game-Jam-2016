@@ -3888,6 +3888,10 @@ Prefab:
       propertyPath: sb
       value: 
       objectReference: {fileID: 601848207}
+    - target: {fileID: 11431188, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
+      propertyPath: cowSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7ca2c20bf6b5f984e95719e6502bc433, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
   m_IsPrefabParent: 0
