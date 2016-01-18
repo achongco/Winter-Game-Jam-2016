@@ -6,6 +6,7 @@ public class TimerController : MonoBehaviour {
 
     public Image hungerBar;
     public Text scoreText;
+    public Text finalScoreText;
     public GameObject player;
     public GameObject GameOverScreen;
     public AudioClip gameOver;
@@ -20,7 +21,7 @@ public class TimerController : MonoBehaviour {
     
     void Update()
     {
-        scoreText.text = score.ToString();
+        scoreText.text = string.Format("{0:n0}", score);
     }
 
 	// Update is called once per frame
@@ -40,6 +41,7 @@ public class TimerController : MonoBehaviour {
     IEnumerator DeathSequence()
     {
         deathRunning = true;
+        finalScoreText.text = string.Format("Calories: {0:n0}", score);
         player.transform.GetChild(0).GetComponent<Animator>().SetTrigger("isDead");
         player.transform.GetComponent<PlayerMovement>().isDead = true;
         yield return new WaitForSeconds(1f);
