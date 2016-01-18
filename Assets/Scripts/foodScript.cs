@@ -53,7 +53,7 @@ public class foodScript : MonoBehaviour {
 		if (hamburgerCollision.gameObject.tag == "Player") {
             if(gameObject.name == "COW"|| gameObject.name == "TURKEY")
             {
-                acScript.specialPositions.Remove(transform.position);
+                acScript.RemoveItem(transform.position);
             }
 
 			transform.position -= new Vector3 (0.5f, -0.5f, 0);

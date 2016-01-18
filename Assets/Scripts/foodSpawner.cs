@@ -136,6 +136,7 @@ public class foodSpawner : MonoBehaviour {
 				//Debug.Log ("cow accessing " + randIndx);
 				food.transform.position = specialPositions [randIndx] + new Vector3(0.5f, -0.5f, 0);
 				specialPositions.RemoveAt (randIndx);
+                acScript.animalType.Add("COW");
 			} else {
 				script.type = foodType.TURKEY;
 				food.name = script.type.ToString ();
@@ -144,6 +145,7 @@ public class foodSpawner : MonoBehaviour {
 				//Debug.Log ("turkey accessing " + randIndx);
 				food.transform.position = specialPositions [randIndx] + new Vector3(0.5f, -0.5f, 0);
 				specialPositions.RemoveAt (randIndx);
+                acScript.animalType.Add("TURKEY");
 			}
 
             acScript.specialPositions.Add(food.transform.position);
