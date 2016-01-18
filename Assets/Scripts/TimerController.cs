@@ -8,6 +8,7 @@ public class TimerController : MonoBehaviour {
     public Text scoreText;
     public GameObject player;
     public GameObject GameOverScreen;
+    public AudioClip gameOver;
     public int score;
 
     bool deathRunning = false;
@@ -43,5 +44,9 @@ public class TimerController : MonoBehaviour {
         player.transform.GetComponent<PlayerMovement>().isDead = true;
         yield return new WaitForSeconds(1f);
         GameOverScreen.SetActive(true);
+        gameObject.GetComponent<AudioSource>().clip = gameOver;
+        gameObject.GetComponent<AudioSource>().loop = false;
+        gameObject.GetComponent<AudioSource>().Play();
+        
     }
 }

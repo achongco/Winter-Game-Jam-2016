@@ -662,7 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b66a973e9861e4886b14fa623f2373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: scenes/Game
+  level: scenes/Arielle Game
 --- !u!4 &983999684
 Transform:
   m_ObjectHideFlags: 0

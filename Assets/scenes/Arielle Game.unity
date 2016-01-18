@@ -2952,6 +2952,7 @@ MonoBehaviour:
   player: {fileID: 1713595314}
   GameOverScreen: {fileID: 27409874}
   score: 0
+  gameOverSound: {fileID: 8300000, guid: ef1a880bda4b8b644a0c18b323ee8616, type: 3}
 --- !u!4 &601848208
 Transform:
   m_ObjectHideFlags: 0
