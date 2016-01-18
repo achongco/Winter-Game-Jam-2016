@@ -2949,8 +2949,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hungerBar: {fileID: 1529587648}
   scoreText: {fileID: 411232507}
+  finalScoreText: {fileID: 0}
   player: {fileID: 1713595314}
   GameOverScreen: {fileID: 27409874}
+  gameOver: {fileID: 8300000, guid: ef1a880bda4b8b644a0c18b323ee8616, type: 3}
   score: 0
 --- !u!4 &601848208
 Transform:
@@ -3797,6 +3799,10 @@ Prefab:
       propertyPath: sb
       value: 
       objectReference: {fileID: 601848207}
+    - target: {fileID: 11431188, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
+      propertyPath: cowSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7ca2c20bf6b5f984e95719e6502bc433, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9bc9b50f24ee944a922fbd0a55522e7, type: 2}
   m_IsPrefabParent: 0
