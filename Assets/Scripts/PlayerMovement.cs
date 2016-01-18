@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     int Eaten;
 	static int startEaten = 10;
-	static int TIER_SHIFT = 25;
+	public static int TIER_SHIFT = 25;
 
     private bool move = false;
     public bool isDead = false;
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Grow(){
         if(Eaten> TIER_SHIFT*4)
-			GrowTo(new Vector3(3.0f, 3.0f, 3.0f));
+			GrowTo(new Vector3(3.4f, 3.4f, 3.4f));
         else if (Eaten > TIER_SHIFT*3)
 			GrowTo(new Vector3(2.7f, 2.7f, 2.7f));
         else if (Eaten >= TIER_SHIFT*2)
@@ -151,5 +151,9 @@ public class PlayerMovement : MonoBehaviour
             AudioSource.PlayClipAtPoint(foodSound, transform.position);
         }
     }
+
+	public int getEaten(){
+		return Eaten;
+	}
 
 }

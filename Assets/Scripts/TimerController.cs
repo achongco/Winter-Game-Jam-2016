@@ -12,7 +12,7 @@ public class TimerController : MonoBehaviour {
     public int score;
 
     bool deathRunning = false;
-    static float STARVATION_RATE = .0025f;
+    static float STARVATION_RATE = .0027f;
 
     void Awake(){
         hungerBar.fillAmount = 1f;
