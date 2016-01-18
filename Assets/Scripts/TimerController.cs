@@ -40,6 +40,7 @@ public class TimerController : MonoBehaviour {
 
     IEnumerator DeathSequence()
     {
+		Debug.Log ("Dying");
         deathRunning = true;
         finalScoreText.text = string.Format("Calories: {0:n0}", score);
         player.transform.GetChild(0).GetComponent<Animator>().SetTrigger("isDead");
